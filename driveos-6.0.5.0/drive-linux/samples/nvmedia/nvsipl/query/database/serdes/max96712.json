@@ -1,0 +1,26 @@
+{
+	"deserializers": [
+		{
+		    "name": "MAX96712",
+		    "description": "Maxim 96712 Aggregator",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": false },
+				{ "idx": "1", "enableGetStatus": false }
+			],
+			"pwrGpio": ["7"],
+			"useCDIv2API" : true
+		},
+		{
+			"name": "MAX96722",
+			"description": "Maxim 96722 Aggregator Fusa",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": false },
+				{ "idx": "1", "enableGetStatus": false }
+			],
+			"pwrGpio": ["7"],
+			"useCDIv2API" : true
+		}
+	]
+}

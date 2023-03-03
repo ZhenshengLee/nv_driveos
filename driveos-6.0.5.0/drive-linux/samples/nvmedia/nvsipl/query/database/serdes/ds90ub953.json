@@ -1,0 +1,10 @@
+{
+	"serializers": [
+		{
+		    "name": "DS90UB953",
+		    "description": "TI DS90UB953 FPDLink III Serializer",
+		    "i2cAddress": "0x18",
+		    "useCDIv2API" : true
+		}
+	]
+}

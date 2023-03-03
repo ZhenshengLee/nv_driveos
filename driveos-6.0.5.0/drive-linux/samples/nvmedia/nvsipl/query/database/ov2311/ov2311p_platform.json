@@ -1,0 +1,447 @@
+{
+    "platformConfigs": [
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-60H_DPHY_x4",
+            "description": "LI-OV2311-VCSEL-GMSL2-60H module in 4 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-60H_DPHY_x2",
+            "description": "LI-OV2311-VCSEL-GMSL2-60H module in 2 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-60H_L_DPHY_x4",
+            "description": "LI-OV2311-VCSEL-GMSL2-60H_L module in 4 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-60H_L_DPHY_x2",
+            "description": "LI-OV2311-VCSEL-GMSL2-60H_L module in 2 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-60H_DPHY_x2_TPG",
+            "description": "LI-OV2311-VCSEL-GMSL2-60H module in 2 lane DPHY, TPG mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "dphy",
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-60H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

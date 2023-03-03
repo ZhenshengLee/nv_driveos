@@ -1,0 +1,9 @@
+{
+	"deserializers": [
+		{
+		    "name": "Example_deserializer",
+		    "description": "Example deserializer",
+		    "i2cAddress": "0x0"
+		}
+	]
+}

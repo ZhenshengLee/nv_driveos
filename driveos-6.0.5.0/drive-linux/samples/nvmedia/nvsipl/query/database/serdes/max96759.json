@@ -1,0 +1,10 @@
+{
+    "serializers": [
+        {
+            "name": "MAX96759",
+            "description": "Maxim 96759 Serializer",
+            "i2cAddress": "0x40",
+            "useCDIv2API" : true
+        }
+    ]
+}

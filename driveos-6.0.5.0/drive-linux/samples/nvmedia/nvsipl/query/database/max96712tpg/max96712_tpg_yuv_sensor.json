@@ -1,0 +1,23 @@
+{
+    "imageSensors": [
+        {
+            "name": "MAX96712_TPG_YUV_8_SENSOR",
+            "description": "Dummy sensor to allow MAXIM 96712 Deserializer TPG YUV",
+            "i2cAddress": "0x0",
+            "virtualChannels" : [
+                {
+                    "cfa": "yuyv",
+                    "embeddedTopLines": 0,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "422",
+                    "width": 0,
+                    "height": 0,
+                    "fps" : 30.0,
+                    "isEmbeddedDataTypeEnabled" : false
+                }
+            ],
+            "isTriggerModeEnabled" : false,
+            "isTPGEnabled" : false
+        }
+    ]
+}

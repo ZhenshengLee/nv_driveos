@@ -1,0 +1,1071 @@
+{
+    "platformConfigs": [
+        {
+            "name": "MAX96712_RAW12_TPG_DPHY_x2",
+            "description": "MAX96712 RAW12 TPG in 2 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RAW12_TPG_DPHY_x4",
+            "description": "MAX96712 RAW12 TPG in 4 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RAW12_TPG_CPHY_x2",
+            "description": "MAX96712 RAW12 TPG in 2 lane CPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RAW12_TPG_CPHY_x2_b",
+            "description": "MAX96712 RAW12 TPG in 2 lane CPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-b",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-d",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-f",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-h",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RAW12_TPG_CPHY_x4",
+            "description": "MAX96712 RAW12 TPG in 4 lane CPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+		        {
+            "name": "MAX96712_RGB_TPG_DPHY_x2",
+            "description": "MAX96712 RGB TPG in 2 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RGB_TPG_DPHY_x4",
+            "description": "MAX96712 RGB TPG in 4 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RGB_TPG_CPHY_x2",
+            "description": "MAX96712 RGB TPG in 2 lane CPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MAX96712_RGB_TPG_CPHY_x4",
+            "description": "MAX96712 RGB TPG in 4 lane CPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "MAX96712TPG",
+                            "sensors": [
+                                {
+                                    "name": "MAX96712_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 1920,
+                                             "height": 1236,
+                                             "cfa": "rgba",
+                                             "inputFormat": "rgb"
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

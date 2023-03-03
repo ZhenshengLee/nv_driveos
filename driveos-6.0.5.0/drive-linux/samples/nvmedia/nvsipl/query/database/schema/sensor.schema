@@ -1,0 +1,72 @@
+{
+    "$id": "sensor.schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NvSIPL sensor JSON schema",
+    "type": "object",
+    "properties": {
+        "imageSensors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "i2cAddress": {
+                        "type": "string"
+                    },
+                    "virtualChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "cfa": {
+                                    "type": "string",
+                                    "enum": ["rggb", "bggr", "grbg", "gbrg", "rccb", "bccr", "crbc", "cbrc", "cccc", "yuyv", "yvyu", "vyuy"]
+                                },
+                                "embeddedTopLines": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "embeddedBottomLines": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "inputFormat": {
+                                    "type": "string"
+                                },
+                                "width": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "height": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "fps": {
+                                    "type": "number",
+                                    "minimum": 0
+                                },
+                                "isEmbeddedDataTypeEnabled": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": ["cfa", "inputFormat", "width", "height"]
+                        },
+                        "minItems": 1
+                    },
+                    "isTriggerModeEnabled": {
+                        "type": "boolean"
+                    },
+                    "isTPGEnabled": {
+                        "type": "boolean"
+                    }
+                },
+                "required": ["name", "i2cAddress", "virtualChannels"]
+            }
+        }
+    }
+}

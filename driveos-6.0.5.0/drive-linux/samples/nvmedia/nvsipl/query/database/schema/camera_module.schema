@@ -1,0 +1,58 @@
+{
+    "$id": "camera_module.schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NvSIPL camera module JSON schema",
+    "type": "object",
+    "properties": {
+        "cameraModules": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "serializer": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["name"]
+                    },
+                    "sensors": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["name"]
+                        },
+                        "minItems": 1
+                    },
+                    "eeproms": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["name"]
+                        },
+                        "minItems": 1
+                    }
+                },
+                "required": ["name", "serializer", "sensors"]
+            }
+        }
+    }
+}
