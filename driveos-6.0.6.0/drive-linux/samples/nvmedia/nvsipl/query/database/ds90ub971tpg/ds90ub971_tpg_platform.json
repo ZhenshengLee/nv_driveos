@@ -1,0 +1,243 @@
+{
+    "platformConfigs": [
+        {
+            "name": "DS90UB971_RAW12_TPG_DPHY_x4",
+            "description": "DS90UB971 RAW12 TPG in 4 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "dphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "DS90UB971_RAW12_TPG_CPHY_x4",
+            "description": "DS90UB971 RAW12 TPG in 4 lane DPHY mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "groupInitProg" : true,
+                    "homogenousModules" : true,
+                    "deserializer": "DS90UB9724",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "DS90UB971TPG",
+                            "sensors": [
+                                {
+                                    "name": "DS90UB971_TPG_SENSOR",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "width": 3840,
+                                             "height": 1928
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+}

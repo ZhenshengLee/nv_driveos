@@ -1,0 +1,13 @@
+{
+	"deserializers": [
+		{
+		    "name": "CNVM_TPG_DESERIALZIER",
+		    "description": "Maxim 96712 TPG deserializer aggregator",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": false }
+			],
+			"useCDIv2API" : true
+		}
+	]
+}

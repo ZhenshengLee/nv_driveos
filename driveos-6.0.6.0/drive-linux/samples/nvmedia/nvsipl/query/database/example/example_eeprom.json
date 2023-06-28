@@ -1,0 +1,9 @@
+{
+	"eeproms": [
+		{
+		    "name": "Example_eeprom",
+		    "description": "Example EEPROM",
+		    "i2cAddress": "0x0"
+		}
+	]
+}

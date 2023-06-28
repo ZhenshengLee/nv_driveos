@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="weston_hdr_static_metadata">
+
+  <copyright>
+    Copyright © 2019 Intel
+    Copyright _ 2022 NVIDIA Corporation
+
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  </copyright>
+
+  <interface name="hdr_surface" version="1">
+
+    <description summary="hdr surface">
+      An extension interface to the wl_surface object to set the HDR static metadata
+      associated with the surface.
+    </description>
+
+    <request name="set_metadata">
+      <description summary="set the HDR static metadata for a surface">
+        Set the HDR static metadata for the associated wl_surface. The HDR static
+        metadata state is double buffered and will be applied on the next
+        wl_surface::commit.
+      </description>
+      <arg name="display_primary_r_x" type="fixed" summary="Red primary X"/>
+      <arg name="display_primary_r_y" type="fixed" summary="Red primary Y"/>
+      <arg name="display_primary_g_x" type="fixed" summary="Green primary X"/>
+      <arg name="display_primary_g_y" type="fixed" summary="Green primary Y"/>
+      <arg name="display_primary_b_x" type="fixed" summary="Blue primary X"/>
+      <arg name="display_primary_b_y" type="fixed" summary="Blue primary Y"/>
+      <arg name="white_point_x" type="fixed" summary="White point X"/>
+      <arg name="white_point_y" type="fixed" summary="White point Y"/>
+      <arg name="min_luminance" type="fixed" summary="Minimum luminance"/>
+      <arg name="max_luminance" type="fixed" summary="Maximum luminance"/>
+      <arg name="max_cll" type="uint" summary="Maximum content light level"/>
+      <arg name="max_fall" type="uint" summary="Maximum frame-average light level"/>
+      <arg name="surface" type="object" interface="wl_surface" summary="the surface"/>
+    </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the hdr_surface object">
+        Destroying this object, destroys the HDR metadata associated with the
+        surface and the surface will be considered as an SDR surface from the
+        next wl_surface::commit.
+      </description>
+      <arg name="surface" type="object" interface="wl_surface" summary="the surface"/>
+    </request>
+  </interface>
+
+</protocol>

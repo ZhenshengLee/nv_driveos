@@ -1,0 +1,40 @@
+#
+# Copyright (c) 2018, NVIDIA CORPORATION. All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+#
+
+This sample app demonstrates the mechanism of importing vulkan texture memory
+for use in a GL context to create a GL texture on top of it.
+The app has the option to choose whether to write texture data into the
+imported memory and then render or to use existing texture data for rendering.
+Any modification made by any of the client process is reflected in other
+clients as expected.
+
+Usage:
+    ./exttex_import [NVGLDEMO args] --client-id <number> --write-tex
+
+The demo accepts all the generic arguments supported by other NVGLDEMO apps.
+The additional arguments are described below:
+
+   --client-id : [Must pass] Takes a number from 1 to 16 denoting the client id expected by the
+                 vulkan allocator process.
+
+   --write-tex : [Optional] If this flag is passed, then the process will upload random texture
+                 data to the imported texture memory. This upload will modify the
+                 rendering in all existing clients.
+
+Sample usage:
+
+If the exporting process is expecting 3 clients, then 3 instances of this app
+should be invoked passing the corresponding client-id in sequence.
+    ./exttex_import [NVGLDEMO args if any] --client-id 1 --write-tex
+    ./exttex_import [NVGLDEMO args if any] --client-id 2
+    ./exttex_import [NVGLDEMO args if any] --client-id 3 --write-tex
+
+client-id 1 must be invoked prior to client-id 2 and 3.
+client-id 2 must be invoked prior to client-id 3.

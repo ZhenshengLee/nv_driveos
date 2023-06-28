@@ -1,0 +1,10 @@
+{
+	"serializers": [
+		{
+		    "name": "MAX9295",
+		    "description": "Maxim 9295 Serializer",
+		    "i2cAddress": "0x62",
+		    "useCDIv2API" : true
+		}
+	]
+}

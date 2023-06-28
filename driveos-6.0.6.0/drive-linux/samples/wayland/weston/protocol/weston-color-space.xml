@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="weston_color_space">
+
+  <copyright>
+    Copyright © 2019 Sebastian Wick
+    Copyright © 2019 Erwin Burema
+    Copyright © 2022 NVIDIA Corporation
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice (including the next
+    paragraph) shall be included in all copies or substantial portions of the
+    Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+  </copyright>
+
+  <description summary="weston color space">
+    This protocol provides the ability to specify the color space
+    of a wl_surface. In this protocol the color space defines the color primaries,
+    the reference white and the transfer function. The color model, the storage format
+    and other metadata are not explicitly defined, and should be inferred by other means.
+  </description>
+
+  <interface name="color_space" version="1">
+    <description summary="a color space">
+      A color space can be attached to a wl_surface and sends
+      information to let the client perform color correction.
+    </description>
+
+    <enum name="well_known_color_space">
+      <entry name="none" value="0" summary="no color space specified"/>
+      <entry name="SRGB" value="1" summary="IEC 61966-2-1:1999"/>
+      <entry name="BT601" value="2" summary="ITU-R BT.601"/>
+      <entry name="BT709" value="3" summary="ITU-R BT.709"/>
+      <entry name="BT2020" value="4" summary="ITU-R BT.2020"/>
+      <entry name="SCRGB_LINEAR" value="5" summary="IEC 61966-2-2 linear floating point"/>
+      <entry name="BT2100_PQ" value="6" summary="ITU-R BT.2100-PQ"/>
+    </enum>
+
+    <request name="set">
+      <description summary="set the color space of a surface">
+        Set the color space of a surface. The color space is double buffered,
+        and will be applied at the time wl_surface.commit of the corresponding
+        wl_surface is called.
+
+        If a surface has no color space set, sRGB color space is assumed.
+      </description>
+      <arg name="surface" type="object" interface="wl_surface"/>
+      <arg name="cs" type="uint" enum="well_known_color_space"
+           summary="well-known color spaces"/>
+    </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the color space object">
+	      Destroy the color_space object.
+      </description>
+    </request>
+  </interface>
+
+</protocol>

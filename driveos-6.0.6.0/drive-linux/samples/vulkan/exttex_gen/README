@@ -1,0 +1,23 @@
+#
+# Copyright (c) 2018, NVIDIA CORPORATION. All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+#
+
+This sample app demonstrates the creation of an exportable texture memory
+allocation in Vulkan. The allocated texture memory can be imported by multiple
+vulkan/GL processes and texture data can be uploaded and manipulated as needed.
+
+Usage:
+
+./exttex_gen --num-clients <number [1-16]>
+
+The value passed '--num-clients' determines the number of client apps that are
+expected to connect and receive the exported FD that identifies the
+texture allocation.
+Default value of '--num-clients' is 1.
+Max value acceptable by '--num-clients' is 16.

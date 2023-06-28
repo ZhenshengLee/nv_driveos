@@ -1,0 +1,23 @@
+{
+    "imageSensors": [
+        {
+            "name": "DS90UB971_TPG_SENSOR",
+            "description": "Dummy sensor to allow DS90UB971 Serializer TPG",
+            "i2cAddress": "0x18",
+            "virtualChannels" : [
+                {
+                    "cfa": "rccb",
+                    "embeddedTopLines": 0,
+                    "embeddedBottomLines": 0,
+                    "inputFormat": "raw12",
+                    "width": 0,
+                    "height": 0,
+                    "fps" : 30.0,
+                    "isEmbeddedDataTypeEnabled" : false
+                }
+            ],
+            "isTriggerModeEnabled" : false,
+            "isTPGEnabled" : false
+        }
+    ]
+}

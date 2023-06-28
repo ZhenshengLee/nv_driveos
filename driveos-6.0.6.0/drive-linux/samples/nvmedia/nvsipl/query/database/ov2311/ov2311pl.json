@@ -1,0 +1,22 @@
+{
+    "cameraModules": [
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-60H_L",
+            "description": "OV2311, MAX9295, 30FPS",
+            "serializer": {
+                "name": "MAX9295"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc",
+                            "fps" : 30.0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+#
+# Copyright (c) 2003 - 2012 NVIDIA Corporation.  All rights reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+#
+# This software is based upon texfont, with consent from Mark J. Kilgard,
+# provided under the following terms:
+#
+# Copyright (c) Mark J. Kilgard, 1997.
+#
+# This program is freely distributable without licensing fees  and is
+# provided without guarantee or warrantee expressed or  implied. This
+# program is -not- in the public domain.
+#
+
+The original TexFont package was written by Mark Kilgard and can be found at
+http://www.opengl.org/resources/code/rendering/mjktips/TexFont/TexFont.html
+
+NvTexFont is an OpenGLES implementation of this library, ported first to
+GLES1 and from there to GLES2. (The GLES1 version is no longer provided.)
+
+The following modifications were made:
+
+1. Conversion from Begin/End to vertex arrays.  A little more involved
+   than you might think.
+
+   The st coordinates for the entire font are now kept in txf->st and
+   vertex coordinates are in txf->vert.  This allowed TexGlyphVertexInfo
+   to be eliminated entirely.  The txf->lut now holds the indicies into
+   the TexGlyphInfo array, and getGlyphIndex is used to get the index of
+   a particular character.
+
+   TexFontRenderGlyph is no longer a public function.  This means the
+   enabling of GL_VERTEX_ARRAY and GL_TEXTURE_COORD_ARRAY client state,
+   as well as setting the VertexPointer and TexCoordPointer, needs to be
+   done once per TexFrontRenderString call instead of once per
+   TexFontRenderGlyph.
+
+2. Some embedded platforms lack File IO, so the binary texFont files
+   were converted to C headers (one for each font) and are built into
+   the library.  By default, only the default font is built in, and
+   others can be added from the Makefile (via -DUSE_HAEBERLI_FONT, for
+   example).  All calls to fread(..., file) were replaced with the
+   similar-looking BUFREAD(..., buffer).
+
+3. The supplied "default.txf" was missing the '-' character.  An attempt
+   to add it failed, since the particular Courier font used in the
+   sample gentexfont.c did not come close to fitting in 256x256.
+
+   I made helvetica.txf from
+   -adobe-helvetica-bold-r-normal--34-*-100-100-*-*-iso8859-1 and it is
+   now the default for NVTexFont.
+
+4. All characters satisfying isprint(...) were added to helvetica font.
+   Support for other raster fonts was removed.
+
+5. Separate versions of the functions are provided which render using
+   vectors rather than rasters.

@@ -1,0 +1,16 @@
+{
+    "cameraModules": [
+        {
+            "name": "MAX96712TPG",
+            "description": "MAX96712 deserialiser in TPG mode",
+            "serializer": {
+                "name": "MAX96712_TPG_SERIALIZER"
+            },
+            "sensors": [
+                {
+                    "name": "MAX96712_TPG_SENSOR"
+                }
+            ]
+        }
+    ]
+}

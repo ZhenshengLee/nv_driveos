@@ -1,0 +1,26 @@
+{
+    "$id": "deserialzer.schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NvSIPL deserialzer JSON schema",
+    "type": "object",
+    "properties": {
+        "deserializers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "i2cAddress": {
+                        "type": "string"
+                    }
+                },
+                "required": ["name", "i2cAddress"]
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<protocol name="weston_gamma">
+  <interface name="weston_gamma" version="1">
+    <description summary="Sets the display gamma.">
+      Sets custom display LUT (look up table) for each primary color.
+    </description>
+    <request name="set_gamma">
+      <description summary="Set the LUT for each color intensity.">
+        Custom LUTs are most often used to adjust the display gamma ramp.
+        Using shm_buffer, set the LUT for red, green and blue color intensity
+        and pass it to Weston using this API.
+
+        The buffer is of dimention 3xsize, where each row represents the LUT
+        values for red, green and blue respectively, and size is number of
+        elements. "size" can be obtained using get_size API.
+
+        Each element is of type uint16_t
+      </description>
+      <arg name="output" type="object" interface="wl_output"/>
+      <arg name="buffer" type="object" interface="wl_buffer"/>
+    </request>
+    <request name="get_gamma">
+      <description summary="Get the LUT for each color intensity.">
+        This API retrieves the already set LUT for red, green and blue
+        intensity. Using shm_buffer, client can retrieve the values.
+
+        The buffer is of dimension 3xsize, where each row represents the LUT
+        values for red, green and blue respectively, and size is number of
+        elements. "size" can be obtained using get_size API.
+
+        Each element is of type uint16_t
+      </description>
+      <arg name="output" type="object" interface="wl_output"/>
+      <arg name="buffer" type="object" interface="wl_buffer"/>
+    </request>
+    <request name="get_size">
+      <description summary="Sends a request for the gamma LUT size,
+                 which will be returned in the gamma_size event."/>
+      <arg name="output" type="object" interface="wl_output"/>
+    </request>
+    <event name="size">
+      <arg name="gamma_size" type="uint" summary="Provides the gamma LUT size,
+              requested by get_size. This is needed to use set_gamma
+              and get_gamma with correct shm_buffer size."/>
+    </event>
+  </interface>
+</protocol>

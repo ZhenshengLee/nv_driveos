@@ -1,0 +1,16 @@
+{
+    "cameraModules": [
+        {
+            "name": "DS90UB971TPG",
+            "description": "DS90UB971 serialiser in TPG mode",
+            "serializer": {
+                "name": "DS90UB971"
+            },
+            "sensors": [
+                {
+                    "name": "DS90UB971_TPG_SENSOR"
+                }
+            ]
+        }
+    ]
+}

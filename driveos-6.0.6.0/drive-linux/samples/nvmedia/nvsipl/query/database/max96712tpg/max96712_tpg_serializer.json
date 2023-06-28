@@ -1,0 +1,9 @@
+{
+    "serializers": [
+        {
+            "name": "MAX96712_TPG_SERIALIZER",
+            "description": "Dummy serializer to allow MAXIM 96712 Deserializer TPG",
+            "i2cAddress": "0x0"
+        }
+    ]
+}
