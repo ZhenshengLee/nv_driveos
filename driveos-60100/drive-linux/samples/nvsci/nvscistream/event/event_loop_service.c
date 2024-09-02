@@ -1,0 +1,333 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: LicenseRef-NvidiaProprietary
+ *
+ * NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
+ * property and proprietary rights in and to this material, related
+ * documentation and any modifications thereto. Any use, reproduction,
+ * disclosure or distribution of this material and related documentation
+ * without an express license agreement from NVIDIA CORPORATION or
+ * its affiliates is strictly prohibited.
+ */
+
+/*
+ * NvSciStream Event Loop Driven Sample App - service-based event handling
+ *
+ * This file implements the option to handle events for all blocks
+ *   through an event service. Each block adds an event notifier to
+ *   a list. That notifier will be signaled when an event is ready
+ *   on the block. A single main loop waits for one or more of the
+ *   notifiers to trigger, processes events on the corresponding
+ *   blocks, and goes back to waiting. When all blocks have been
+ *   destroyed either due to failure or all payloads being processed,
+ *   the loop exits and the function returns.
+ */
+
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+#if (QNX == 1)
+#include <sys/neutrino.h>
+#endif
+#include "nvscievent.h"
+#include "block_info.h"
+#include "event_loop.h"
+
+/* Event service */
+static NvSciEventLoopService* service = NULL;
+
+/* List of blocks */
+#define MAX_INTERNAL_NOTIFIERS  10
+#define MAX_NOTIFIERS           MAX_BLOCKS + MAX_INTERNAL_NOTIFIERS
+
+int32_t  numBlocks                  = 0U;
+uint32_t numAlive                   = 0U;
+static uint32_t numIntNotifiers     = 0U;
+static int32_t  numNotifiers        = 0U;
+
+BlockEventData       blocks[MAX_BLOCKS];
+BlockEventData*      blocksAlive[MAX_BLOCKS];
+static NvSciEventNotifier*  intNotifiers[MAX_INTERNAL_NOTIFIERS];
+
+static uint32_t success = 1U;
+
+/* Initialize service-based event handling */
+static int32_t eventServiceInit(void)
+{
+    /*
+     * The OS configuration should be NULL for Linux and should
+     * have a valid configuration for QNX.
+     * See NvSciEventLoopServiceCreateSafe API Specification for more
+     * information.
+     */
+    void *osConfig = NULL;
+
+#if (QNX == 1)
+    struct nto_channel_config config = {0};
+
+    /*
+     * The number of pulses could be calculated based on the
+     * number of notifiers bind to the event service, number of packets and
+     * number of events handled by each block.
+     * (num_of_pulses = num_of_notifiers * 4 + \
+     *                  (num_packets + 5) * num_of_endpoints)
+     * If experienced pulse pool shortage issue in normal operation, increase
+     * the number of pulses.
+     * If there are no available pulses in the pool, SIGKILL is delivered
+     * by default. You may configure the sigevent that you want to be
+     * delivered when a pulse can't be obtained from the pool.
+     *
+     * See NvSciEventLoopServiceCreateSafe API Specification for more
+     * information.
+     */
+
+    /* The num_pulses set below is just an example number and should be
+     * adjusted depending on the use case.
+     */
+    config.num_pulses = 1024U;
+    config.rearm_threshold = 0;
+    osConfig = &config;
+#endif
+
+    /* Create event loop service */
+    NvSciError err = NvSciEventLoopServiceCreateSafe(1U, osConfig, &service);
+    if (NvSciError_Success != err) {
+        printf("Failed (%x) to create event service\n", err);
+        return 0;
+    }
+
+    return 1;
+}
+
+/* Register a new block with the event management */
+static int32_t eventServiceRegister(
+    NvSciStreamBlock blockHandle,
+    void*            blockData,
+    BlockFunc        blockFunc)
+{
+    /* Sanity check to make sure we left room for enough blocks */
+    if (numBlocks >= MAX_BLOCKS) {
+        printf("Exceeded maximum number of blocks\n");
+        return 0;
+    }
+
+    /* Grab the next entry in the list for the new block and fill it in */
+    BlockEventData* entry = &blocks[numBlocks++];
+    entry->handle = blockHandle;
+    entry->data   = blockData;
+    entry->func   = blockFunc;
+    entry->isAlive = true;
+    entry->retry = false;
+
+    /* Create a notifier for events on this block */
+    NvSciError err =
+        NvSciStreamBlockEventServiceSetup(entry->handle,
+                                          &service->EventService,
+                                          &entry->notifier);
+
+    if (NvSciError_Success != err ) {
+        printf("Failed (%x) to create event notifier for block\n", err);
+        return 0;
+    }
+
+    return 1;
+}
+
+/* Register a new block with the event management to handle internal event.
+ *
+ * It's only supported on IpcSrc/IpcDst blocks now.
+ *
+ * Without user-provided event service, each IpcSrc/IpcDst block creates
+ *   an internal event service and spawns a dispatch thread to handle the
+ *   internal I/O messages.
+ *
+ * With the user-provided event service, no internal thread will be created.
+ *   The application needs to wait for events on these internal notifiers.
+ *   When there's a new notification on the internal notifiers, it will
+ *   trigger the NvSciStream callback function automatically.
+ *
+ * The application can bind the internal notifiers and the external
+ *   notifiers, which is used to monitor the NvSciStreamEvent on the block,
+ *   to the same event service or different ones. In this sample app, we
+ *   bind them to the same event service and use one thread to handle all
+ *   the events.
+ */
+static int32_t eventServiceInternalRegister(
+    NvSciStreamBlock blockHandle)
+{
+    /* Gets notifiers for internal events on this block */
+    numIntNotifiers = MAX_INTERNAL_NOTIFIERS;
+    NvSciError err =
+        NvSciStreamBlockInternalEventServiceSetup(
+            blockHandle,
+            &service->EventService,
+            &numIntNotifiers,
+            intNotifiers);
+
+    if (NvSciError_Success != err) {
+        printf("Failed (%x) to setup internal event service for block\n", err);
+        return 0;
+    }
+
+    /* Sanity check to make sure we left room for enough internal notifiers */
+    if (numIntNotifiers >= MAX_INTERNAL_NOTIFIERS) {
+        printf("Exceeded maximum number of internal notifiers\n");
+        return 0;
+    }
+
+    return 1;
+}
+
+/* Main service-based event loop */
+static int32_t eventServiceLoop(void)
+{
+    int32_t i;
+    int32_t k;
+
+    /*
+     * Notes on handling notificiations:
+     *   If more than one signal occurs on a notifier in between calls
+     *     to check for events, then NvSciEvent will squash the notifications,
+     *     so only one is received. This means the application must drain
+     *     all pending events on a block after its notifier signals. It won't
+     *     receive new notifications for those pending events.
+     *   A simple implementation might process each block's events in a loop
+     *     until there are no more, and then move on to the next block. But
+     *     this poses a risk of starvation. Consider the case of a stream in
+     *     mailbox mode, where the mailbox already has a waiting payload.
+     *     If the producer receives a PacketReady event, it will obtain
+     *     the packet, fill it with data, and present it to the stream.
+     *     Because the mailbox is full, the packet will immediately be
+     *     returned, resulting in a new PacketReady event. The application
+     *     can go into an infinite loop, generating new payloads on the
+     *     producer without giving the consumer a chance to process them.
+     *   We therefore use an event loop that only processes one event
+     *     per block for each iteration, but keeps track of whether there
+     *     was an event on a block for the previous pass, and if so
+     *     retries it even if no new signal occurred. The event loop
+     *     waits for events only when there was no prior event. Otherwise
+     *     it only polls for new ones.
+     *   For internal notifiers, as handler is registered by NvSciStream
+     *     when creating the notifiers, the handler will be triggered
+     *     automatically when there's new event. Application only needs
+     *     to wait for new events but no need to handle the new events.
+     */
+
+    /* Pack all notifiers into an array */
+    NvSciEventNotifier* notifiers[MAX_NOTIFIERS];
+
+    /* Initialize loop control parameters */
+    int64_t timeout = 1000000;
+    bool event[MAX_NOTIFIERS];
+    uint32_t numAliveBlocks;
+
+    numAlive = numBlocks;
+
+    /* Main loop - Handle events until all blocks report completion or fail */
+    while (numAlive && !atomic_load(&streamDone)) {
+
+        numNotifiers = 0;
+        numAliveBlocks = 0;
+
+        /* Acquire the lock */
+        pthread_mutex_lock(&mutex);
+        /* Pack the external notifiers for the block */
+        for (i=0; i<numBlocks; ++i) {
+            if (blocks[i].isAlive) {
+                blocksAlive[numAliveBlocks] = &blocks[i];
+                notifiers[numAliveBlocks] = blocks[i].notifier;
+                numAliveBlocks++;
+            }
+        }
+
+        k = numAliveBlocks;
+        /* Pack the internal notifiers */
+        for (uint32_t j = 0; j < numIntNotifiers; ++j,++k) {
+            notifiers[k] = intNotifiers[j];
+        }
+
+        numNotifiers = numAliveBlocks + numIntNotifiers;
+
+        /* Release the lock */
+        pthread_mutex_unlock(&mutex);
+
+        /* Wait/poll for events, depending on current timeout */
+        memset(event, 0, sizeof(event));
+
+        NvSciError err = service->WaitForMultipleEventsExt(
+                                    &service->EventService,
+                                    notifiers,
+                                    numNotifiers,
+                                    timeout,
+                                    event);
+
+        if ((NvSciError_Success != err) && (NvSciError_Timeout != err)) {
+            printf("Failure (%x) while waiting/polling event service\n", err);
+            return 0;
+        }
+
+        /* Timeout for next pass will be infinite unless we need to retry */
+        timeout = 1000000;
+
+        /*
+         * Check for events on new blocks that signaled or old blocks that
+         *   had an event on the previous pass. This is done in reverse
+         *   of the order in which blocks were registered. This is because
+         *   producers are created before consumers, and for mailbox mode
+         *   we want to give the consumer a chance to use payloads before
+         *   the producer replaces them.
+         */
+        for (i=numAliveBlocks-1; ((i>=0) && (!atomic_load(&streamDone))); --i) {
+            /* Get block info */
+            BlockEventData* entry = blocksAlive[i];
+            if (entry != NULL) {
+                if (event[i] || entry->retry) {
+
+                    /* Reset to no retry for next pass */
+                    entry->retry = false;
+
+                    /* Skip if this block is no longer in use */
+                    if (entry->data) {
+
+                        /* Call the block's event handler function */
+                        int32_t rv = entry->func(entry->data, 0);
+                        if (rv < 0) {
+                            /* On failure, no longer check block and app failed */
+                            success = 0U;
+                            entry->data = NULL;
+                            numAlive--;
+                        } else if (rv == 2) {
+                            /* On completion, no longer check block */
+                            entry->isAlive = false;
+                            entry->data = NULL;
+                            numAlive--;
+                        } else if (rv == 1) {
+                            /* If event found, retry next loop */
+                            timeout = 0;
+                            entry->retry = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Delete notifiers */
+    for (i=0; i<numBlocks; ++i) {
+        blocks[i].notifier->Delete(blocks[i].notifier);
+    }
+
+    /* Delete service */
+    service->EventService.Delete(&service->EventService);
+
+    return success;
+}
+
+/* Table of functions for service-based event handling */
+EventFuncs const eventFuncs_Service = {
+    .init   = eventServiceInit,
+    .reg    = eventServiceRegister,
+    .regInt = eventServiceInternalRegister,
+    .loop   = eventServiceLoop
+};

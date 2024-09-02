@@ -1,0 +1,257 @@
+SPDX-FileCopyrightText: Copyright (c) 2021-2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+SPDX-License-Identifier: LicenseRef-NvidiaProprietary
+
+NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
+property and proprietary rights in and to this material, related
+documentation and any modifications thereto. Any use, reproduction,
+disclosure or distribution of this material and related documentation
+without an express license agreement from NVIDIA CORPORATION or
+its affiliates is strictly prohibited.
+
+NvSciStream Event Loop Driven Sample App - README
+
+---
+# nvscistream_event_sample - NvSciStream Sample App
+
+## Description
+
+This directory contains an NvSciStream sample application that
+supports a variety of use cases, using an event-loop driven model.
+Once the stream is fully connected, all further setup and streaming
+operations are triggered by events, processed either by a single
+NvSciEvent-driven thread or separate threads which wait for events
+on each block. The former is the preferred approach for implementing
+NvSciStream applications. In addition to those events which NvSci
+itself generates, any other event which can be bound to an NvSciEvent
+can be added to the event loop. This allows for robust applications
+which can handle events regardless of the order in which they occur.
+
+To use this sample for writing your own applications:
+
+* See main.c for examples of how to do top level application setup and
+  how to select the blocks needed for your use case and connect them
+  all together.
+* See the descriptions in the usecase*.h files to determine which use cases
+  involve the producer and consumer engines that you are interested in.
+* See the appropriate block_*.c files for examples of creating the
+  necessary blocks and handling the events that they encounter.
+  See the block_producer_*.c and block_consumer_*.c files for examples of how
+  to map the relevant engines to and from NvSci.
+* See the appropriate event_loop_*.c file for your chosen event handling
+  method.
+
+## Build the application
+
+The NvSciStream sample includes source code and a Makefile.
+Navigate to the sample application directory to build the application:
+
+       make clean
+       make
+
+## Examples of how to run the sample application:
+
+* NOTE:
+* Inter-process and inter-chip test cases must be run with sudo.
+* NvMedia/CUDA stream (use case 2) of the sample application is not supported
+  on x86 and Jetson Linux devices.
+* Inter-chip use cases are not supported on Jetson Linux devices.
+
+Single-process, single-consumer CUDA/CUDA stream that uses the default event
+service:
+
+    ./nvscistream_event_sample
+
+Single-process, single-consumer stream that uses the threaded event handling:
+
+    ./nvscistream_event_sample -e t
+
+Single-process NvMedia/CUDA stream with yuv format:
+    ./nvscistream_event_sample -u 2 -s y
+
+Single-process NvMedia/CUDA stream with three consumers, and the second uses
+the mailbox mode:
+
+    ./nvscistream_event_sample -u 2 -m 3 -q 1 m
+
+Multi-process CUDA/CUDA stream with three consumers, one in the same
+process as the producer, and the other two in separate processes. The
+first and the third consumers use the mailbox mode:
+
+    ./nvscistream_event_sample -m 3 -p -c 0 -q 0 m &
+    ./nvscistream_event_sample -c 1 -c 2 -q 2 m
+
+Multi-process CUDA/CUDA stream with three consumers, one in the same
+process as the producer, and the other two in separate processes.
+To simulate the case with a less trusted consumer, one of the consumer
+processes is set with lower priority. A limiter block is used to restrict
+this consumer to hold at most one packet. The total number of packets is
+increased to five.
+
+Linux example:
+
+    ./nvscistream_event_sample -m 3 -f 5 -p -c 0 -l 2 1 &
+    ./nvscistream_event_sample -c 1 &
+    nice -n 19 ./nvscistream_event_sample -c 2 &
+    # Makes the third process as nice as possible.
+
+QNX example:
+
+    ./nvscistream_event_sample -m 3 -f 5 -p -c 0 -l 2 1 &
+    ./nvscistream_event_sample -c 1 &
+    nice -n 1 ./nvscistream_event_sample -c 2 &
+    # Reduces the priority level of the third process by 1.
+
+Multi-process CUDA/CUDA stream with two consumers, one in the same
+process as the producer, and the other in a separate processe. Both
+processes enable the endpoint information option:
+
+    ./nvscistream_event_sample -m 2 -p -c 0 -i &
+    ./nvscistream_event_sample -c 1 -i
+
+Multi-process CUDA/CUDA stream with extra validation steps for ASIL-D process
+(Not support on x86):
+    ./nvscistream_event_sample -u 3 -p  &
+    ./nvscistream_event_sample -u 3 -c 0
+
+Multi-process CUDA/CUDA stream using external event service to handle internal
+I/O messages acroess process boundary:
+    ./nvscistream_event_sample -p -E &
+    ./nvscistream_event_sample -c 0 -E
+
+Multi-process CUDA/CUDA stream with one consumer on another SoC.
+The consumer has the FIFO queue attached to the C2C IpcSrc block, and
+a three-packet pool attached to the C2C IpcDst block. It uses IPC channel
+nvscic2c_pcie_s0_c5_1 <-> nvscic2c_pcie_s0_c6_1 for C2C communication.
+
+    ./nvscistream_event_sample -P 0 nvscic2c_pcie_s0_c5_1 -Q 0 f
+    # Run below command on another OS running on peer SOC.
+    ./nvscistream_event_sample -C 0 nvscic2c_pcie_s0_c6_1 -F 0 3
+
+Multi-process CUDA/CUDA stream with four consumers, one in the same
+process as the producer, one in another process but in the same OS as the
+producer, and two in another process on another OS running in a peer SoC.
+The third and fourth consumers have a mailbox queue attached to the C2C
+IpcSrc block, and a five-packet pool attached to the C2C IpcDst block.
+The third consumer uses nvscic2c_pcie_s0_c5_1 <-> nvscic2c_pcie_s0_c6_1 for
+C2C communication. The 4th consumer uses nvscic2c_pcie_s0_c5_2 <->
+nvscic2c_pcie_s0_c6_2 for C2C communication.
+
+    ./nvscistream_event_sample -m 4 -c 0 -q 0 m -Q 2 m -Q 3 m -P 2 nvscic2c_pcie_s0_c5_1 -P 3 nvscic2c_pcie_s0_c5_2 &
+    ./nvscistream_event_sample -c 1 -q 1 m
+    # Run below command on another OS running on peer SOC.
+    ./nvscistream_event_sample -C 2 nvscic2c_pcie_s0_c6_1 -q 2 f -F 2 5 -C 3 nvscic2c_pcie_s0_c6_2 -q 3 m -F 3 5
+
+#Example commands for inter-process late attach usecase
+Multi-process CUDA/CUDA stream with one early consumer and one late-attached consumer
+Producer and early consumer processes are configured to stream 100000 frames, where as
+the late-attached consumer process is configured to receive 10000 frames.
+    # Run the below commands to launch producer and early consumer processes.
+    ./nvscistream_event_sample -m 2 -r 1 -p &
+    ./nvscistream_event_sample -c 0 -k 0 100000 &
+    # Run the below command after some delay to launch the late-attached consumer process.
+     sleep 1; # This 1s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -c 1 -k 1 10000 &
+
+Multi-process CUDA/CUDA stream with one early consumer and two late-attached consumers
+Producer and early consumer processes are configured to stream 100000 frames, where as
+the late-attached consumer process one is configured to receive 10000 frames and
+the late-attached consumer process two is configured to receive 50000 frames
+    # Run the below commands to launch producer and early consumer processes.
+    ./nvscistream_event_sample -m 3 -r 2 -p &
+    ./nvscistream_event_sample -c 0 -k 0 100000 &
+    # Run the below command after some delay to launch the late-attached consumer process one.
+     sleep 1; # This 5s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -c 1 -k 1 10000 &
+    # Run the below command after some delay to launch the late-attached consumer process two.
+     sleep 1; # This 5s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -c 2 -k 2 50000 &
+
+#Example commands for inter-process re-attach usecase
+Multi-process CUDA/CUDA stream with one early consumer and two late-attached consumers
+Producer and early consumer processes are configured to stream 100000 frames, where as
+the late-attached consumer process one is configured to receive 10000 frames and
+the late-attached consumer process two is configured to receive 50000 frames.
+Once late-attached consumer process one completes streaming, re-attach it for receiving
+5000 frames.
+    # Run the below commands to launch producer and early consumer processes.
+    ./nvscistream_event_sample -m 3 -r 2 -p &
+    ./nvscistream_event_sample -c 0 -k 0 100000 &
+    # Run the below command after some delay to launch the late-attached consumer process one.
+     sleep 1; # This 5s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -c 1 -k 1 10000 &
+    # Run the below command after some delay to launch the late-attached consumer process two.
+     sleep ;
+    ./nvscistream_event_sample -L -c 2 -k 2 50000 &
+    # After late-attached consumer process one completes, re-attach it.
+    ./nvscistream_event_sample -L -c 1 -k 1 5000 &
+
+Limitations with C2C late/re-attach:
+This sample app has the following limitations.
+1. For C2C late/re-attach, this sample app does not support IPC consumer being the only early
+consumer and all the remaining consumers as C2C late-attached. This is due to setting static
+attribute logic for late-attach is not added.
+2. A C2C consumer can acts as an IPC consumer during late-/re-attach but an IPC consumer
+cannot be made as C2C consumer during Late/re-attach.
+
+#Example commands for inter-chip late attach usecase
+Multi-process CUDA/CUDA stream with one early C2C consumer and one C2C late-attached consumer
+Producer and early C2C consumer processes are configured to stream 100000 frames, where as
+the late-attached C2C consumer process is configured to receive 10000 frames.
+The early consumer uses nvscic2c_pcie_s0_c5_1 <-> nvscic2c_pcie_s0_c6_1 for
+C2C communication. The late-attached consumer uses nvscic2c_pcie_s0_c5_2 <->
+nvscic2c_pcie_s0_c6_2 for C2C communication.
+
+    # Run the below commands to launch producer on SOC1
+    ./nvscistream_event_sample -m 2 -r 1 -P 0 nvscic2c_pcie_s0_c5_1 -P 1 nvscic2c_pcie_s0_c5_2 &
+    # Run the below commands to launch early consumer process on SOC2
+    ./nvscistream_event_sample -C 0 nvscic2c_pcie_s0_c6_1 -k 0 100000 &
+    # Run the below command after some delay to launch the late-attached consumer process on SOC2
+     sleep 1; # This 5s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -C 1 nvscic2c_pcie_s0_c6_2 -k 1 10000 &
+
+Multi-process CUDA/CUDA stream with one early C2C consumer and two C2C late-attached consumer
+Producer and early C2C consumer processes are configured to stream 100000 frames, where as
+the late-attached C2C consumer process is one configured to receive 10000 frames and
+the late-attached C2C consumer process is two configured to receive 10000 frames.
+The early consumer uses nvscic2c_pcie_s0_c5_1 <-> nvscic2c_pcie_s0_c6_1 for
+C2C communication. The late-attached consumer one uses nvscic2c_pcie_s0_c5_2 <->
+nvscic2c_pcie_s0_c6_2 for C2C communication and the late-attached consumer two
+uses nvscic2c_pcie_s0_c5_3 <->nvscic2c_pcie_s0_c6_3 for C2C communication.
+
+    # Run the below commands to launch producer on SOC1
+    ./nvscistream_event_sample -m 3 -r 2 -P 0 nvscic2c_pcie_s0_c5_1 -P 1 nvscic2c_pcie_s0_c5_2 -P 2 nvscic2c_pcie_s0_c5_3 &
+    # Run the below commands to launch early consumer process on SOC2
+    ./nvscistream_event_sample -C 0 nvscic2c_pcie_s0_c6_1 -k 0 100000 &
+    # Run the below command after some delay to launch the late-attached consumer process.
+     sleep 1; # This 5s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -C 1 nvscic2c_pcie_s0_c6_2 -k 1 10000 &
+    # Run the below command after some delay to launch the late-attached consumer process.
+     sleep 1;
+    ./nvscistream_event_sample -L -C 2 nvscic2c_pcie_s0_c6_3 -k 2 10000 &
+
+#Example commands for inter-chip/process re-attach usecase
+Multi-process CUDA/CUDA stream with one early consumer and two late-attached consumers
+Producer and early consumer processes are configured to stream 100000 frames, where as
+the late-attached consumer process one is configured to receive 10000 frames and
+the late-attached consumer process two is configured to receive 50000 frames.
+Once late-attached consumer process one completes streaming, re-attach it for receiving
+5000 frames.
+Once late-attached consumer process two completes streaming, re-attach it as IPC consumer for receiving
+5000 frames.
+
+    # Run the below commands to launch producer on SOC1
+    ./nvscistream_event_sample -m 3 -r 2 -P 0 nvscic2c_pcie_s0_c5_1 -P 1 nvscic2c_pcie_s0_c5_2 -P 2 nvscic2c_pcie_s0_c5_3 &
+    # Run the below commands to launch early consumer process on SOC2
+    ./nvscistream_event_sample -C 0 nvscic2c_pcie_s0_c6_1 -k 0 100000 &
+    # Run the below command after some delay to launch the late-attached consumer process.
+     sleep 1; # This 5s delay will let producer and consumer to enter into streaming phase.
+    ./nvscistream_event_sample -L -C 1 nvscic2c_pcie_s0_c6_2 -k 1 10000 &
+    # Run the below command after some delay to launch the late-attached consumer process.
+     sleep 1;
+    ./nvscistream_event_sample -L -C 2 nvscic2c_pcie_s0_c6_3 -k 2 50000 &
+    # Once late-attached consumer process one completes streaming,
+    # re-attach it for receiving 5000 frames.
+    ./nvscistream_event_sample -L -C 1 nvscic2c_pcie_s0_c6_2 -k 1 5000 &
+    # Once late-attached consumer process two completes streaming,
+    # re-attach it as IPC consumer on SOC1 for receiving 5000 frames.
+    ./nvscistream_event_sample -L -c 2 -k 2 5000 &
