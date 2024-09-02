@@ -110,6 +110,18 @@ nv-driveos-linux-vksc-dev-6.0.5.0-31732390_6.0.5.0-31732390_amd64.deb
 nv-driveos-linux-vksc-ecosystem-6.0.5.0-31732390_6.0.5.0-31732390_amd64.deb
 # vksc库
 
+```
 
+## 拷贝方法
 
+```sh
+# 多线程压缩解压缩
+sudo apt install pigz
+
+cd /gw_demo
+tar --use-compress-program=pigz -h --exclude=*/boost/* -cvpf driveos-60100-drive-linux.tgz /drive/drive-linux/include/ /drive/drive-linux/samples/
+tar --use-compress-program=pigz -h -cvpf driveos-60100-usr.tgz /usr/include/nvsci*
+tar --use-compress-program=pigz -h -cvpf ./driveos-60100-docs.tgz /drive/docs/*
+
+tar --use-compress-program=pigz -xvpf driveos-60100.tgz
 ```
