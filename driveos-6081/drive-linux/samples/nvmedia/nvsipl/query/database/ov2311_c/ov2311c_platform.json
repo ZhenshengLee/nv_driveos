@@ -1,0 +1,1024 @@
+{
+    "platformConfigs": [
+        {
+            "name": "I0OO23111CML1050NB10_CPHY_x4",
+            "description": "I0OO23111CML1050NB10 module in 4 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_CPHY_x2",
+            "description": "I0OO23111CML1050NB10 module in 2 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_30FPS_CPHY_x4",
+            "description": "I0OO23111CML1050NB10 module in 4 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_30FPS_CPHY_x2",
+            "description": "I0OO23111CML1050NB10 module in 2 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10_30FPS",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_CPHY_x2_TPG",
+            "description": "I0OO23111CML1050NB10 module in 2 lane cphy, TPG mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_CPHY_x4",
+            "description": "LI-OV2311-VCSEL-GMSL2-55H module in 4 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_CPHY_x2",
+            "description": "LI-OV2311-VCSEL-GMSL2-55H module in 2 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_L_CPHY_x4",
+            "description": "LI-OV2311-VCSEL-GMSL2-55H_L module in 4 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ab",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-cd",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-ef",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-gh",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_L_CPHY_x2",
+            "description": "LI-OV2311-VCSEL-GMSL2-55H_L module in 2 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_CPHY_x2_TPG",
+            "description": "LI-OV2311-VCSEL-GMSL2-55H module in 2 lane cphy, TPG mode",
+            "enableMasks" : ["0x1111", "0x1111", "0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-a",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-c",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-e",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 8,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-g",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 12,
+                                    "virtualChannels" : [
+                                         {
+                                             "embeddedTopLines": 0,
+                                             "embeddedBottomLines": 0
+                                         }
+                                    ],
+                                    "isTPGEnabled" : true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_REC_CPHY_x2",
+            "description": "I0OO23111CML1050NB10 module in 2 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-b",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-d",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "I0OO23111CML1050NB10",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_REC_CPHY_x2",
+            "description": "LI-OV2311-VCSEL-GMSL2-55H module in 2 lane cphy mode",
+            "enableMasks" : ["0x1111", "0x1111"],
+            "deviceBlocks": [
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-b",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "simulatorMode": false,
+                    "passiveMode": false,
+                    "csiPort": "csi-d",
+                    "phyMode": "cphy",
+                    "homogenousModules" : true,
+                    "deserializer": "MAX96712_Fusa_nv",
+                    "cameraModules": [
+                        {
+                            "linkIndex": 0,
+                            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+                            "sensors": [
+                                {
+                                    "name": "OV2311",
+                                    "id": 4
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

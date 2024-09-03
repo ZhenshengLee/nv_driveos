@@ -1,0 +1,16 @@
+{
+    "cameraModules": [
+        {
+            "name": "Example_module",
+            "description": "Example module",
+            "serializer": {
+                "name": "Example_serializer"
+            },
+            "sensors": [
+                {
+                    "name": "Example_sensor"
+                }
+            ]
+        }
+    ]
+}

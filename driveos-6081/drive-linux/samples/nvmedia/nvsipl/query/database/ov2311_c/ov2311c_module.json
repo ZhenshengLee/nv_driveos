@@ -1,0 +1,153 @@
+{
+    "cameraModules": [
+        {
+            "name": "I0OO23111CML1050NB10",
+            "description": "OV2311, MAX96717F, 60FPS",
+            "serializer": {
+                "name": "MAX96717F",
+                "i2cAddress": "0x42"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc"
+                        }
+                    ]
+                }
+            ],
+            "eeproms": [
+                {
+                    "name": "N24C64",
+                    "i2cAddress": "0x54"
+                }
+            ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_30FPS",
+            "description": "OV2311, MAX96717F, 30FPS",
+            "serializer": {
+                "name": "MAX96717F",
+                "i2cAddress": "0x42"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc",
+                            "fps" : 30.0
+                        }
+                    ]
+                }
+            ],
+            "eeproms": [
+                {
+                    "name": "N24C64",
+                    "i2cAddress": "0x54"
+                }
+           ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H",
+            "description": "OV2311, MAX9295, 60FPS",
+            "serializer": {
+                "name": "MAX96717F",
+                "i2cAddress": "0x42"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "i2cAddress": "0x10",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc"
+                        }
+                    ]
+                }
+            ],
+            "eeproms": [
+                {
+                    "name": "N24C64",
+                    "i2cAddress": "0x54"
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_L",
+            "description": "OV2311, MAX96717F, 30FPS",
+            "serializer": {
+                "name": "MAX96717F",
+                "i2cAddress": "0x42"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "i2cAddress": "0x10",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc",
+                            "fps" : 30.0
+                        }
+                    ]
+                }
+            ],
+            "eeproms": [
+                {
+                    "name": "N24C64",
+                    "i2cAddress": "0x54"
+                }
+           ]
+        },
+        {
+            "name": "I0OO23111CML1050NB10_E",
+            "description": "OV2311, MAX96717F, 60FPS",
+            "serializer": {
+                "name": "MAX96717F",
+                "i2cAddress": "0x42"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc"
+                        }
+                    ]
+                }
+            ],
+            "eeproms": [
+                {
+                    "name": "N24C64",
+                    "i2cAddress": "0x54"
+                }
+            ]
+        },
+        {
+            "name": "LI-OV2311-VCSEL-GMSL2-55H_E",
+            "description": "OV2311, MAX9295, 60FPS",
+            "serializer": {
+                "name": "MAX96717F",
+                "i2cAddress": "0x42"
+            },
+            "sensors": [
+                {
+                    "name": "OV2311",
+                    "i2cAddress": "0x10",
+                    "virtualChannels" : [
+                        {
+                            "cfa": "cccc"
+                        }
+                    ]
+                }
+            ],
+            "eeproms": [
+                {
+                    "name": "N24C64",
+                    "i2cAddress": "0x54"
+                }
+            ]
+        }
+    ]
+}

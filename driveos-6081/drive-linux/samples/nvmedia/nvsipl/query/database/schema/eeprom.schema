@@ -1,0 +1,26 @@
+{
+    "$id": "eeprom.schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NvSIPL EEPROM JSON schema",
+    "type": "object",
+    "properties": {
+        "eeproms": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "i2cAddress": {
+                        "type": "string"
+                    }
+                },
+                "required": ["name", "i2cAddress"]
+            }
+        }
+    }
+}

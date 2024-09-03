@@ -1,0 +1,145 @@
+{
+    "$id": "platform_config.schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NvSIPL platform config JSON schema",
+    "type": "object",
+    "properties": {
+        "platformConfigs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enableMasks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "minItems": 1
+                    },
+                    "deviceBlocks": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "simulatorMode": {
+                                    "type": "boolean"
+                                },
+                                "passiveMode": {
+                                    "type": "boolean"
+                                },
+                                "csiPort": {
+                                    "type": "string",
+                                    "enum": [
+                                        "csi-a",
+                                        "csi-b",
+                                        "csi-c",
+                                        "csi-d",
+                                        "csi-e",
+                                        "csi-f",
+                                        "csi-g",
+                                        "csi-h",
+                                        "csi-ab",
+                                        "csi-cd",
+                                        "csi-ef",
+                                        "csi-gh"
+                                    ]
+                                },
+                                "phyMode": {
+                                    "type": "string",
+                                    "enum": ["cphy", "dphy"]
+                                },
+                                "groupInitProg": {
+                                    "type": "boolean"
+                                },
+                                "homogenousModules": {
+                                    "type": "boolean"
+                                },
+                                "cameraModules": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "linkIndex": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximim": 3
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "sensors": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "minimum": 0,
+                                                            "maximim": 15
+                                                        }
+                                                    },
+                                                    "required": ["name", "id"]
+                                                },
+                                                "minItems": 1
+                                            }
+                                        },
+                                        "required": ["linkIndex", "name", "sensors"]
+                                    },
+                                    "minItems": 1
+                                },
+                                "cryptoConfigs": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "linkIndex": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximim": 3
+                                            },
+                                            "cryptoKeys": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "keyPurpose": {
+                                                            "type": "string"
+                                                        },
+                                                        "keyName": {
+                                                            "type": "string"
+                                                        },
+                                                        "cryptoChanID": {
+                                                            "type": "integer",
+                                                            "minimum": 0,
+                                                            "maximim": 0xFFFFFFFF
+                                                        }
+                                                    },
+                                                    "required": ["keyPurpose", "keyName", "cryptoChanID"]
+                                                },
+                                                "minItems": 1
+                                            }
+                                        },
+                                        "required": ["linkIndex"]
+                                    },
+                                    "minItems": 1
+                                }
+                            },
+                            "required": ["csiPort", "phyMode", "cameraModules"]
+                        },
+                        "minItems": 1
+                    }
+                },
+                "required": ["name", "enableMasks", "deviceBlocks"]
+            }
+        }
+    }
+}

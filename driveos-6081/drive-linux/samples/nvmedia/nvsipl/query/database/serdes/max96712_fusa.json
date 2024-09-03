@@ -1,0 +1,45 @@
+{
+	"deserializers": [
+		{
+		    "name": "MAX96712_Fusa",
+		    "description": "Maxim 96712 Aggregator Fusa",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": true, "timeout_ms": 0 }
+			],
+			"pwrGpio": ["7"],
+			"useCDIv2API" : true
+		},{
+		    "name": "MAX96722_Fusa",
+		    "description": "Maxim 96722 Aggregator Fusa",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": false, "timeout_ms": 0 },
+				{ "idx": "1", "enableGetStatus": false, "timeout_ms": 0 }
+			],
+			"pwrGpio": ["7"],
+			"useCDIv2API" : true
+		},{
+		    "name": "MAX96712_Fusa_nv",
+		    "description": "Maxim 96712 Aggregator Fusa_nv",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": true, "timeout_ms": 0 },
+				{ "idx": "1", "enableGetStatus": false, "timeout_ms": 0 }
+			],
+			"pwrGpio": ["7"],
+			"useCDIv2API" : true
+		},{
+		    "name": "MAX96722_Fusa_nv",
+		    "description": "Maxim 96722 Aggregator Fusa_nv",
+			"i2cAddress": "0x29",
+			"errGpios": [
+				{ "idx": "0", "enableGetStatus": true, "timeout_ms": 0 },
+				{ "idx": "1", "enableGetStatus": false, "timeout_ms": 0 }
+			],
+			"pwrGpio": ["7"],
+			"useCDIv2API" : true
+		}
+
+	]
+}

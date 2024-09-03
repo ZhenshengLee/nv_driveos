@@ -1,0 +1,11 @@
+{
+    "deserializers": [
+        {
+            "name": "DS90UB9724",
+            "description": "TI DS90UB9724 FPDLink IV Aggregator",
+            "i2cAddress": "0x30",
+            "pwrGpio": ["7"],
+            "useCDIv2API" : true
+        }
+    ]
+}
